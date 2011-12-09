@@ -1,0 +1,15 @@
+Provantage Sports App using:
+
+Rails 3.1.1
+
+Used template to seed app
+
+Authentication: Devise
+
+Current functions:
+
+Sign in
+User Profiles
+Calendars for each user
+Admin access
+Admin access to the calendars
