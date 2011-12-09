@@ -4,30 +4,41 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Provantage Sports App</title>
+    <title><%= title %></title>
     <meta name="description" content="">
     <meta name="author" content="">
+    <%= render 'layouts/overide' %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= params[:controller] %>">
+    <%= render 'layouts/navigation' %>
     <div id="container" class="container">
-      <header>
-        <nav>
-          <ul class="hmenu">
-            <%= render 'shared/navigation' %>
-          </ul>
-        </nav>
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String) %>
-        <%- end -%>
-      </header>
-      <div id="main" role="main">
-        <%= yield %>
+      <div class="content">
+        <div class="page-header">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :class => "alert-message #{name}" if msg.is_a?(String) %>
+          <%- end -%>          
+                  
+          <h1><%= header %><!--<small>Supporting text or tagline</small> --></h1>
+        </div>
+        <div class="row">
+          <div class="span10">
+            <!-- <h2>Main content</h2> -->
+            <%= yield %>
+          </div>
+          <div class="span4">
+            <!-- <h3>Secondary content</h3>-->
+          </div>
+        </div>
       </div>
+
       <footer>
+        <p>&copy; Provantage Sports 2011</p>
       </footer>
-    </div> <!--! end of #container -->
+
+    </div> <!-- /container -->
+
   </body>
 </html>

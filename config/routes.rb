@@ -2,6 +2,11 @@ ProvantageSportsApp::Application.routes.draw do
   #get \"users\/show\"
 
   root :to => "home#index"
+  
+  # static pages:
+  
+  match '/contact',      :to => 'home#contact'
+  match '/about',        :to => 'home#about'
 
   devise_for :users
   resources :users, :only => :show
